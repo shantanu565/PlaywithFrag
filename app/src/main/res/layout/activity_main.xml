@@ -13,26 +13,28 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_margin="8dp"
+            android:onClick="adding"/>
+
+        <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Replace"
             android:layout_margin="8dp"
-            android:layout_gravity="center"/>
+            android:onClick="replacing"/>
+
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remove"
             android:layout_margin="8dp"
-            android:layout_gravity="center"/>
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PreferenceFragMent"
-            android:layout_margin="8dp"
-            android:layout_gravity="center"/>
+            android:onClick="removing"/>
 
 
     </LinearLayout>
@@ -40,41 +42,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preference frag"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:onClick="open_preference"/>
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DialogFragment"
             android:layout_margin="8dp"
-            android:layout_gravity="center"/>
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="ListDetailview" />
+            android:layout_gravity="center"
+            android:onClick="open_dialog"/>
+
 
     </LinearLayout>
-
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click to Add a fragment"
         android:layout_margin="8dp"
-        android:layout_gravity="center"/>
+        android:text="ListDetailview"
+        android:onClick="open_listdetail"/>
+
 
 
     <FrameLayout
         android:id="@+id/fl1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This is framelayput"
-            android:layout_gravity="center"/>
+        android:layout_height="wrap_content">
 
     </FrameLayout>
+
 
 </LinearLayout>

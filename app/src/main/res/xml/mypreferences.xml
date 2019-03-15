@@ -18,23 +18,7 @@
                 android:summary="summary_edittext_preference"
                 android:dialogTitle="Dialog Title" />
 
-            <ListPreference
-                android:key="list_preference"
-                android:title="Choose your City"
-                android:summary="Locality"
-                android:entries="entries_list_preference"
-                android:entryValues="entryvalues_list_preference"
-                android:dialogTitle="Cities"/>
         </PreferenceCategory>
 
-        <Preference
-            android:title="Launch Preferences">
 
-            <PreferenceScreen
-                android:key="screen_preference"
-                android:title="Browse"
-                android:summary="Find more content">
-
-
-</PreferenceScreen></Preference>
 </PreferenceScreen>

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button button1,button2,button3,button4,button5,button6;
+    Button b_add,b_replace,b_remove,b_prefence_frag,b_dialogfrag,b_listdetailfrag;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     String button_text;
@@ -22,68 +22,64 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager=getSupportFragmentManager();
 
-        button4=(Button)findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i4=new Intent(MainActivity.this,Preferencefrag.class);
-                startActivity(i4);
-            }
-        });
-        button5=(Button)findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i5=new Intent(MainActivity.this,Main2Activity.class);
-                startActivity(i5);
-            }
-        });
-        button6=(Button)findViewById(R.id.button6);
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i6=new Intent(MainActivity.this,ListwithDetail.class);
-                startActivity(i6);
-            }
-        });
 
-        button2=(Button)findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+        b_add=(Button)findViewById(R.id.button1);
+        b_replace=(Button)findViewById(R.id.button2);
+        b_remove=(Button)findViewById(R.id.button2);
+        b_prefence_frag=(Button)findViewById(R.id.button2);
+        b_dialogfrag=(Button)findViewById(R.id.button2);
+        b_listdetailfrag=(Button)findViewById(R.id.button2);
+
+        b_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button_text=button2.getText().toString();
-                if (button_text.equals("replace")){
-                    FragmentTransaction fragmentTransaction =
-                            fragmentManager.beginTransaction();
-                    SecFrag s=new SecFrag();
-                    fragmentTransaction.replace(R.id.fl1,s);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                    button2.setText("remove");
-                }else if (button2.equals("remove")){
-                    FragmentTransaction fragmentTransaction =
-                            fragmentManager.beginTransaction();
-                    SecFrag s=new SecFrag();
-                    fragmentTransaction.remove(s);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                    button2.setText("Add");
-                }
-
-            }
-        });
-
-        button1=(Button)findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentTransaction=fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 FirstFrag f=new FirstFrag();
-                fragmentTransaction.replace(R.id.fl1,f);
+                fragmentTransaction.add(f,"first");
+                //fragmentTransaction.replace(mContainerId, fragment, fragment.toString());
+                //fragmentTransaction.addToBackStack(fragment.toString());
                 fragmentTransaction.commit();
+            }
+        });
+
+        b_replace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               replace_frag();
 
             }
         });
+
+    }
+    public  void replace_frag(){
+        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+        ft2.replace(R.id.fl1, new FirstFrag());
+        //fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    public void adding(View view){
+
+    }
+    public void replacing(View view){
+
+    }
+    public void removing(View view){
+
+    }
+    public void open_preference(View view){
+        Intent i4=new Intent(MainActivity.this,Preferencefrag.class);
+        startActivity(i4);
+
+    }
+    public void open_dialog(View view){
+        Intent i5=new Intent(MainActivity.this,Main2Activity.class);
+        startActivity(i5);
+
+    }
+    public void open_listdetail(View view){
+        Intent i6=new Intent(MainActivity.this,ListwithDetail.class);
+        startActivity(i6);
+
     }
 
     @Override
@@ -117,4 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

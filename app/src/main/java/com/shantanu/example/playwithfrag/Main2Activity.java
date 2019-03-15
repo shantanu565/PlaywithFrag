@@ -20,7 +20,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MyDialogFrag d = new MyDialogFrag();
-                d.show(fm, "Dialog Fragment");
+                new MyDialogFrag().show(getSupportFragmentManager(), "Dialog Fragment");
 
             }
         });

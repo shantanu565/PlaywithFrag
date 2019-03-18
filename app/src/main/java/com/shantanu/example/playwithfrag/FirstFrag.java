@@ -6,9 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstFrag extends Fragment {
+    TextView textView1;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -26,10 +29,12 @@ public class FirstFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.firstfrag, container, false);
+        textView1=(TextView)v.findViewById(R.id.tv_value);
         Toast.makeText(getActivity(), "onCreateView", Toast.LENGTH_LONG).show();
 
         return v;
     }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -90,5 +95,7 @@ public class FirstFrag extends Fragment {
         super.onDetach();
         Toast.makeText(getActivity(), "onDetach", Toast.LENGTH_LONG).show();
 
-    }
+}
+
+
 }

@@ -1,6 +1,7 @@
 package com.shantanu.example.playwithfrag;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +13,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button b_add,b_replace,b_remove,b_prefence_frag,b_dialogfrag,b_listdetailfrag;
     FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    String button_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,49 +22,38 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
 
 
-        b_add=(Button)findViewById(R.id.button1);
-        b_replace=(Button)findViewById(R.id.button2);
-        b_remove=(Button)findViewById(R.id.button2);
-        b_prefence_frag=(Button)findViewById(R.id.button2);
-        b_dialogfrag=(Button)findViewById(R.id.button2);
-        b_listdetailfrag=(Button)findViewById(R.id.button2);
+        b_add=(Button)findViewById(R.id.btn_add);
+        b_replace=(Button)findViewById(R.id.btn_replace);
+        b_remove=(Button)findViewById(R.id.btn_removing);
+        b_prefence_frag=(Button)findViewById(R.id.btn_preference);
+        b_dialogfrag=(Button)findViewById(R.id.btn_dialog);
+        b_listdetailfrag=(Button)findViewById(R.id.btn_listdetail);
 
-        b_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                FirstFrag f=new FirstFrag();
-                fragmentTransaction.add(f,"first");
-                //fragmentTransaction.replace(mContainerId, fragment, fragment.toString());
-                //fragmentTransaction.addToBackStack(fragment.toString());
-                fragmentTransaction.commit();
-            }
-        });
 
-        b_replace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               replace_frag();
-
-            }
-        });
 
     }
-    public  void replace_frag(){
-        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-        ft2.replace(R.id.fl1, new FirstFrag());
-        //fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+
     public void adding(View view){
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.add(R.id.fl1, new FirstFrag());;
+        ft.commit();
 
     }
     public void replacing(View view){
 
-    }
-    public void removing(View view){
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.fl1, new SecFrag());
+        ft.commit();
 
     }
+    public void removing(View view){
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fl1);
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.remove(fragment);
+        ft.commit();
+
+    }
+
     public void open_preference(View view){
         Intent i4=new Intent(MainActivity.this,Preferencefrag.class);
         startActivity(i4);
@@ -81,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i6);
 
     }
+
 
     @Override
     protected void onResume() {

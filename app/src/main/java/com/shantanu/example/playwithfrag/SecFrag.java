@@ -25,7 +25,7 @@ public class SecFrag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.firstfrag, container, false);
+        View v = inflater.inflate(R.layout.secfrag, container, false);
         Toast.makeText(getActivity(), "onCreateView", Toast.LENGTH_LONG).show();
 
         return v;

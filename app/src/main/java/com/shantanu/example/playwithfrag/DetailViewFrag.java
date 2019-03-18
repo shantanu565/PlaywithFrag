@@ -13,11 +13,12 @@ public class DetailViewFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detailview, container, false);
         name = (TextView)view.findViewById(R.id.Name);
-        location = (TextView)view.findViewById(R.id.Location);
+       // location = (TextView)view.findViewById(R.id.Location);
         return view;
     }
-    public void change(String uname, String ulocation){
-        name.setText(uname);
-        location.setText(ulocation);
+
+    public void youGotMessage(String msg){
+        name.setText(msg);
     }
+
 }

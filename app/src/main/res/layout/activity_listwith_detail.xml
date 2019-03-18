@@ -4,17 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
+    android:weightSum="2"
     tools:context=".ListwithDetail">
 
     <fragment
         android:layout_height="match_parent"
         android:layout_width="350px"
         class="com.shantanu.example.playwithfrag.MyListFragment"
+        tools:layout="@layout/listoddetail"
+        android:layout_weight="1"
         android:id="@+id/fragment"/>
+
     <fragment
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         class="com.shantanu.example.playwithfrag.DetailViewFrag"
+        tools:layout="@layout/detailview"
         android:id="@+id/fragment2"/>
+
 </LinearLayout>
